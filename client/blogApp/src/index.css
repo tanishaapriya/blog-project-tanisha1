@@ -1,0 +1,331 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer utilities {
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+}
+
+/* Root variables for theming */
+:root {
+  --scrollbar-track: #e2e8f0;
+  --scrollbar-thumb: #94a3b8;
+  --scrollbar-thumb-hover: #64748b;
+}
+
+[data-theme="dark"] {
+  --scrollbar-track: #1a1a2e;
+  --scrollbar-thumb: #2a2a3e;
+  --scrollbar-thumb-hover: #374151;
+}
+
+/* Modern scrollbar design */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Base styles */
+* {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography enhancements */
+.heading-gradient {
+  background: linear-gradient(135deg, #06b6d4 0%, #a855f7 50%, #f97316 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Glass morphism effects */
+.glass {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.glass-dark {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(26, 26, 46, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.glass-light {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Card hover effects */
+.card-hover {
+  transform: translateY(0);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.card-hover-dark:hover {
+  box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2);
+}
+
+/* Button animations */
+.btn-animated {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-animated:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-animated:hover:before {
+  left: 100%;
+}
+
+/* Loading animations */
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Form focus effects */
+.input-focus {
+  transition: all 0.3s ease;
+}
+
+.input-focus:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(6, 182, 212, 0.15);
+}
+
+/* Text selection */
+::selection {
+  background: rgba(6, 182, 212, 0.3);
+  color: inherit;
+}
+
+::-moz-selection {
+  background: rgba(6, 182, 212, 0.3);
+  color: inherit;
+}
+
+/* Custom animations for specific elements */
+.bounce-in {
+  animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Gradient backgrounds */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
+}
+
+.bg-gradient-accent {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+}
+
+.bg-gradient-light {
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+}
+
+/* Prose styles for dark theme */
+.prose-dark {
+  color: #e2e8f0 !important;
+}
+
+.prose-dark h1,
+.prose-dark h2,
+.prose-dark h3,
+.prose-dark h4,
+.prose-dark h5,
+.prose-dark h6 {
+  color: #f1f5f9 !important;
+}
+
+.prose-dark strong {
+  color: #f1f5f9 !important;
+}
+
+.prose-dark em {
+  color: #cbd5e1 !important;
+}
+
+.prose-dark a {
+  color: #06b6d4 !important;
+}
+
+.prose-dark a:hover {
+  color: #0891b2 !important;
+}
+
+.prose-dark blockquote {
+  color: #94a3b8 !important;
+  border-left-color: #374151 !important;
+}
+
+.prose-dark code {
+  color: #a855f7 !important;
+  background-color: rgba(42, 42, 62, 0.5) !important;
+}
+
+.prose-dark pre {
+  background-color: rgba(42, 42, 62, 0.8) !important;
+  color: #e2e8f0 !important;
+}
+
+.prose-dark p {
+  color: #e2e8f0 !important;
+}
+
+.prose-dark span {
+  color: #e2e8f0 !important;
+}
+
+.prose-dark div {
+  color: #e2e8f0 !important;
+}
+
+/* Dark theme text color overrides */
+[data-theme="dark"] .text-dark-text,
+[data-theme="dark"] .dark\\:text-dark-text {
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .text-dark-muted,
+[data-theme="dark"] .dark\\:text-dark-muted {
+  color: #94a3b8 !important;
+}
+
+/* Glass dark components text override */
+.glass-dark * {
+  color: #e2e8f0 !important;
+}
+
+.glass-dark .text-dark-muted {
+  color: #94a3b8 !important;
+}
+
+.glass-dark .text-primary-400 {
+  color: #22d3ee !important;
+}
+
+.glass-dark .text-primary-500 {
+  color: #06b6d4 !important;
+}
+
+/* Prose styles for light theme */
+.prose-light {
+  color: #1e293b;
+}
+
+.prose-light h1,
+.prose-light h2,
+.prose-light h3,
+.prose-light h4,
+.prose-light h5,
+.prose-light h6 {
+  color: #0f172a;
+}
+
+.prose-light strong {
+  color: #0f172a;
+}
+
+.prose-light em {
+  color: #475569;
+}
+
+.prose-light a {
+  color: #0891b2;
+}
+
+.prose-light a:hover {
+  color: #0e7490;
+}
+
+.prose-light blockquote {
+  color: #64748b;
+  border-left-color: #cbd5e1;
+}
+
+.prose-light code {
+  color: #9333ea;
+  background-color: rgba(248, 250, 252, 0.8);
+}
+
+.prose-light pre {
+  background-color: #f8fafc;
+  color: #1e293b;
+}
