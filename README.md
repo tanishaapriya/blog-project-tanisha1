@@ -235,7 +235,7 @@ blogApp/
 ## Author
 
 **Your Name**
-- GitHub:(https://github.com/CHIRANJEEVBHATT)
+- GitHub:(https://github.com/TanishaPriua)
 - LinkedIn:(https://www.linkedin.com/in/chiranjeev-bhatt-89678430a/)
 
 ## Acknowledgments
